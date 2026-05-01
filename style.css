@@ -1,0 +1,38 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+body{display:flex;background:#0f172a;color:#fff}
+.hidden{display:none}
+
+/* Sidebar */
+.sidebar{width:240px;height:100vh;background:#020617;padding:20px}
+.sidebar h2{margin-bottom:30px}
+.sidebar ul{list-style:none}
+.sidebar li{padding:12px;border-radius:10px;cursor:pointer}
+.sidebar li:hover{background:#1e293b}
+
+/* Main */
+.main{flex:1;padding:20px}
+.header{display:flex;justify-content:space-between;margin-bottom:20px}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.card{background:#1e293b;padding:20px;border-radius:15px}
+
+button{padding:8px 12px;border:none;border-radius:8px;cursor:pointer}
+.add-btn{background:#22c55e;color:#000}
+.delete-btn{background:#ef4444;color:#fff}
+.logout-btn{background:#facc15;color:#000}
+
+input{padding:8px;border-radius:8px;border:none}
+
+/* Table */
+table{width:100%;margin-top:15px;border-collapse:collapse}
+th,td{padding:10px}
+tr{background:#1e293b}
+
+/* Login */
+.login{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  background:#020617;display:flex;justify-content:center;align-items:center;
+}
+.login-box{background:#1e293b;padding:30px;border-radius:15px;width:300px}
+.login-box h2{margin-bottom:15px}
+.login-box input{width:100%;margin-bottom:10px}
