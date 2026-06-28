@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart AI Chat</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial;
+    background:#0f172a;
+    color:white;
+}
+
+/* HEADER */
+.header{
+    padding:15px;
+    background:#111827;
+    text-align:center;
+    font-weight:bold;
+}
+
+/* CHAT BOX */
+#chat{
+    height:80vh;
+    overflow-y:auto;
+    padding:15px;
+}
+
+/* MESSAGE BUBBLES */
+.msg{
+    padding:10px 15px;
+    margin:8px 0;
+    border-radius:15px;
+    max-width:70%;
+    line-height:1.4;
+}
+
+.user{
+    background:#4f46e5;
+    margin-left:auto;
+    text-align:right;
+}
+
+.bot{
+    background:#1f2937;
+}
+
+/* INPUT AREA */
+.input-box{
+    display:flex;
+    padding:10px;
+    background:#111827;
+}
+
+input{
+    flex:1;
+    padding:12px;
+    border:none;
+    outline:none;
+    border-radius:8px;
+}
+
+button{
+    margin-left:10px;
+    padding:12px 15px;
+    border:none;
+    border-radius:8px;
+    background:#4f46e5;
+    color:white;
+    cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+    <div class="sidebar">
+  <h2>Dashboard</h2>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="profile.html">Profile</a></li>
+  <li><a href="projects.html">Projects</a></li>
+  <li><a href="messages.html">Messages</a></li>
+  <li><a href="settings.html">Settings</a></li>
+</div>
+
+<div class="header">🔥 Smart AI Chat (Offline)</div>
+
+<div id="chat"></div>
+
+<div class="input-box">
+    <input id="input" placeholder="Ask anything...">
+    <button onclick="send()">Send</button>
+</div>
+
+<script>
+
+/* SMART ANSWERS ENGINE */
+function getAnswer(q){
+
+    q = q.toLowerCase();
+
+    if(q.includes("hello") || q.includes("hi")){
+        return "Hello bhai 👋 kaise ho? main tumhari help ke liye hoon.";
+    }
+
+    if(q.includes("html")){
+        return "HTML website banane ki basic language hai jo structure banati hai.";
+    }
+
+    if(q.includes("css")){
+        return "CSS website ko beautiful design karta hai 🎨";
+    }
+
+    if(q.includes("javascript")){
+        return "JavaScript website ko interactive banata hai ⚡";
+    }
+
+    if(q.includes("who are you")){
+        return "Main tumhara smart offline AI assistant hoon 🤖";
+    }
+
+    if(q.includes("cricket")){
+        return "Cricket Pakistan aur India ka bohat popular sport hai 🏏";
+    }
+
+    if(q.includes("study")){
+        return "Study karo bhai 📚 consistency success ki key hai!";
+    }
+
+    if(q.includes("love")){
+        return "Love ek beautiful feeling hai ❤️ respect aur care important hai.";
+    }
+
+    return "🤖 Sorry bhai, mujhe iska answer nahi pata lekin main seekh raha hoon.";
+}
+
+function send(){
+
+    let input = document.getElementById("input");
+    let text = input.value;
+
+    if(text === "") return;
+
+    let chat = document.getElementById("chat");
+
+    /* USER MESSAGE */
+    chat.innerHTML += `<div class="msg user">${text}</div>`;
+
+    /* BOT MESSAGE */
+    setTimeout(() => {
+        let reply = getAnswer(text);
+        chat.innerHTML += `<div class="msg bot">${reply}</div>`;
+        chat.scrollTop = chat.scrollHeight;
+    }, 500);
+
+    input.value = "";
+}
+
+</script>
+
+</body>
+</html>
